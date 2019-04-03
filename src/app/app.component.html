@@ -6,27 +6,39 @@
 <!-- Container de Formulário Cadastro -->
 <div>
   <span> <strong>Cadastro de Pessoas</strong></span>
-  <form #cadastro="ngForm">
+  <form #cadastro="ngForm" (submit)="salvar()">
     <div>
       <label for="nome" name="nome">Nome</label><br />
-      <input type="text" name="nome" placeholder="ex: Lucas Pedro" required />
+      <input
+        [(ngModel)]="nome"
+        type="text"
+        name="nome"
+        placeholder="ex: Lucas Pedro"
+        required
+      />
       <br />
 
       <label for="sexo" name="sexo">Sexo</label><br />
 
-      <input type="radio" name="sexo" value="masculino" />
-      <label name="masculino"> Masculino</label>
+      <input [(ngModel)]="sexo" type="radio" name="sexo" value="masculino" />
+      <label name="masculino"> Masculino: </label>
 
-      <input type="radio" name="sexo" value="Feminino" />
-      <label for="feminino" name="feminino">Feminino</label>
+      <input [(ngModel)]="sexo" type="radio" name="sexo" value="Feminino" />
+      <label for="feminino" name="feminino">Feminino: </label>
       <br />
 
       <label for="Idade" name="idade">Idade</label> <br />
-      <input type="number" name="idade" placeholder="ex: 23" required /><br />
+      <input
+        [(ngModel)]="idade"
+        type="number"
+        name="idade"
+        placeholder="ex: 23"
+        required
+      /><br />
 
       <label for="cidade" name="cidade">Cidade</label>
       <br />
-      <select name="cidade" required>
+      <select [(ngModel)]="cidade" name="cidade" required>
         <option value="Palmas">Palmas</option>
         <option value="Paraíso">Paraiso</option>
         <option value="Porto Nacional">Porto Nacional</option>
