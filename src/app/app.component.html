@@ -1,20 +1,111 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<h1>Questionário Social</h1>
 
+<nav class="container topo"></nav>
+<hr />
+
+<div class="container-conteudo">
+  <!-- Container de Formulário Cadastro -->
+  <div>
+    <span> <strong>Cadastro de Pessoas</strong></span>
+    <form #cadastro="ngForm" (submit)="salvar()">
+      <div>
+        <label for="nome" name="nome">Nome</label><br />
+        <input
+          [(ngModel)]="nome"
+          type="text"
+          name="nome"
+          placeholder="ex: Lucas Pedro"
+          required
+        />
+        <br />
+
+        <label for="sexo" name="sexo">Sexo</label><br />
+
+        <input [(ngModel)]="sexo" type="radio" name="sexo" value="masculino" />
+        <label name="masculino"> Masculino: </label>
+
+        <input [(ngModel)]="sexo" type="radio" name="sexo" value="Feminino" />
+        <label for="feminino" name="feminino">Feminino: </label>
+        <br />
+
+        <label for="Idade" name="idade">Idade</label> <br />
+        <input
+          [(ngModel)]="idade"
+          type="number"
+          name="idade"
+          placeholder="ex: 23"
+          required
+        /><br />
+
+        <label for="cidade" name="cidade">Cidade</label>
+        <br />
+        <select [(ngModel)]="cidade" name="cidade" required>
+          <option value="Palmas">Palmas</option>
+          <option value="Paraíso">Paraiso</option>
+          <option value="Porto Nacional">Porto Nacional</option>
+        </select>
+      </div>
+      <div>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!cadastro.valid"
+        >
+          Salvar
+        </button>
+        <button class="btn btn-dark" type="reset" formnovalidate>
+          Limpar
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Container de Relação das Pessoas -->
+  <div>
+    <span> <strong>Relação de Pessoas</strong></span>
+
+    <!-- Média de idade em cada cidade. -->
+    <section>
+      <h5>Média de idade em cada cidade</h5>
+      <table>
+        <tbody>
+          <tr>
+            <td>Palmas</td>
+            <td>Porto Nacional</td>
+            <td>Paraíso</td>
+          </tr>
+          <tr>
+            <td>45 anos</td>
+            <td>32 anos</td>
+            <td>32 anos</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!--Questionário de Homens e Mulheres com maior e menor idade.  -->
+    <section>
+      <h5>Homens e Mulheres com maior e menor idade.</h5>
+      <table>
+        <tbody>
+          <tr>
+            <td>Pessoa mais velha:</td>
+            <td>João Henrique</td>
+          </tr>
+          <tr>
+            <td>Pessoa mais nova:</td>
+            <td>Lucas</td>
+          </tr>
+          <tr>
+            <td>Média de idade das Mulheres</td>
+            <td>25</td>
+          </tr>
+          <tr>
+            <td>Média de idade dos Homes</td>
+            <td>22</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
