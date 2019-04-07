@@ -15,7 +15,7 @@
   <!-- Container de Formulário Cadastro -->
   <div>
     <span> <strong>Cadastro de Pessoas</strong></span>
-    <form #cadastro="ngForm" (submit)="salvar()">
+    <form #cadastro="ngForm" (submit)="cadastrar(cadastro)">
       <div>
         <label for="nome" name="nome">Nome</label><br />
         <input
