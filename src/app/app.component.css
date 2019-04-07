@@ -19,3 +19,17 @@ nav.container-menu {
   border-right: solid rgb(199, 198, 196) 1px;
   padding-right: 20px;
 }
+.sexo {
+  margin-right: 3px;
+}
+div.container-bnt-form {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 300px;
+}
+
+button.bnt-form {
+  margin-left: 10px;
+  width: 100px;
+}
