@@ -21,5 +21,5 @@ export class AppComponent {
     form.valid;
   };
 
-  apresentaTela = (tela: string): string => (this.tela = tela);
+  apresentarTela = (tela: string): string => (this.tela = tela);
 }
