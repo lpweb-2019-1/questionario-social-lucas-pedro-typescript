@@ -125,17 +125,17 @@
             <tr>
               <td>Palmas</td>
               <td>%</td>
-              <td>{{ this.getPorcetagemHomemPalmas() }} %</td>
+              <td>%</td>
             </tr>
             <tr>
               <td>Porto Nacional</td>
               <td>%</td>
-              <td>{{ this.getPorcetagemHomemPorto() }} %</td>
+              <td>%</td>
             </tr>
             <tr>
               <td>Paraíso</td>
               <td>%</td>
-              <td>{{ this.getPorcetagemHomemParaiso() }} %</td>
+              <td>%</td>
             </tr>
           </tbody>
         </table>
@@ -179,11 +179,11 @@
             </tr>
             <tr>
               <td>Média de idade das Mulheres</td>
-              <td>{{ this.getMediaIdadeMulher() }}</td>
+              <td></td>
             </tr>
             <tr>
               <td>Média de idade dos Homes</td>
-              <td>{{ this.getMediaIdadeHomem() }}</td>
+              <td>{{ this.pessoa.getMediaIdadeHomem() }}</td>
             </tr>
           </tbody>
         </table>
@@ -204,7 +204,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let pessoa of this.getListarPessoa()">
+          <tr *ngFor="let pessoa of this.pessoa.getListarPessoa()">
             <td>{{ pessoa.nome }}</td>
             <td>{{ pessoa.sexo }}</td>
             <td>{{ pessoa.idade }}</td>
