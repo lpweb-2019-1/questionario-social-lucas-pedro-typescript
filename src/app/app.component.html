@@ -10,6 +10,7 @@
     <aside><button class="btn btn-light btn-menu">Pessoas</button></aside>
   </nav>
   <section>
+    <!-- container de cadastro de pessoas (FORMULÁRIO) -->
     <aside>
       <form #cadastro="ngForm" (submit)="cadastrar(cadastro)">
         <div class="form-group">
@@ -26,7 +27,6 @@
         <!-- /caixa de sexo\ -->
         <div class="form-group">
           <label class="sexo" for="sexo" name="sexo">Sexo</label><br />
-
           <input
             class="sexo"
             [(ngModel)]="sexo"
@@ -86,6 +86,7 @@
       </form>
       <small>Sistema de cadastro de pessoas!</small>
     </aside>
+    <!-- container de informações da pesquisa (Porcetagem de pessoas por sexo nas cidades) -->
     <aside>
       <h5 style="margin-bottom: 20px;">
         Porcetagem de pessoas por sexo nas cidades
@@ -117,6 +118,27 @@
         </tbody>
       </table>
     </aside>
-    <aside>Lista de pessoas</aside>
+    <!-- container de informações da pesquisa (Média de idade em cada cidade) -->
+    <aside>
+      <h5 style="margin-bottom: 20px; margin-top: 30px;">
+        Média de idade em cada cidade
+      </h5>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Palmas</th>
+            <th>Paraíso</th>
+            <th>Porto Nacional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </aside>
   </section>
 </div>
