@@ -53,9 +53,9 @@
             [(ngModel)]="sexo"
             type="radio"
             name="sexo"
-            value="masculino"
+            value="Masculino"
           />
-          <label class="sexo" name="masculino"> Masculino </label>
+          <label class="sexo" name="Masculino"> Masculino </label>
           <input
             class="sexo"
             [(ngModel)]="sexo"
@@ -63,7 +63,7 @@
             name="sexo"
             value="Feminino"
           />
-          <label class="sexo" for="feminino" name="feminino">Feminino </label>
+          <label class="sexo" for="Feminino" name="Feminino">Feminino </label>
         </div>
         <!-- /caixa de idade\ -->
         <div class="form-group">
@@ -179,11 +179,11 @@
             </tr>
             <tr>
               <td>Média de idade das Mulheres</td>
-              <td></td>
+              <td>{{ this.getMediaIdadeM() }}</td>
             </tr>
             <tr>
               <td>Média de idade dos Homes</td>
-              <td></td>
+              <td>{{ this.getMediaIdadeH() }}</td>
             </tr>
           </tbody>
         </table>
@@ -204,11 +204,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let pessoa of this.getListaQuestionario()">
+            <td>{{ pessoa.nome }}</td>
+            <td>{{ pessoa.sexo }}</td>
+            <td>{{ pessoa.idade }}</td>
+            <td>{{ pessoa.cidade }}</td>
           </tr>
         </tbody>
       </table>
