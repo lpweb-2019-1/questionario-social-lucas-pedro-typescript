@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { PessoaManagerService } from "./controller/pessoa-manager.service";
 import { Pessoa } from "./pessoa/pessoa";
 
 @Component({
@@ -6,7 +7,7 @@ import { Pessoa } from "./pessoa/pessoa";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   nome: string = null;
   sexo: string = null;
   idade: number = null;
@@ -27,6 +28,8 @@ export class AppComponent {
   constructor() {
     this.mediaIdadeHomemMulher();
   }
+
+  ngOnInit() {}
 
   cadastrar = (form: any): void => {
     const pessoa = {
