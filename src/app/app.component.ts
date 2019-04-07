@@ -10,10 +10,16 @@ export class AppComponent {
   sexo: boolean = null;
   idade: number = null;
   cidade: string = null;
-  masculino: boolean = null;
-  feminino: boolean = null;
+
+  tela: string = "home";
 
   questionario_social: Array<object> = [];
 
   constructor() {}
+
+  cadastrar = (form): void => {
+    form.valid;
+  };
+
+  apresentaTela = (tela: string): string => (this.tela = tela);
 }
