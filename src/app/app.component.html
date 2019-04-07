@@ -5,13 +5,34 @@
 <hr />
 <div class="container container-central">
   <nav class="container-menu">
-    <aside><button class="btn btn-light btn-menu">Cadastrar</button></aside>
-    <aside><button class="btn btn-light btn-menu">Estatística</button></aside>
-    <aside><button class="btn btn-light btn-menu">Pessoas</button></aside>
+    <aside>
+      <button
+        class="btn btn-light btn-menu"
+        (click)="apresentarTela('Cadastro')"
+      >
+        Cadastrar
+      </button>
+    </aside>
+    <aside>
+      <button
+        class="btn btn-light btn-menu"
+        (click)="apresentarTela('Estatística')"
+      >
+        Estatística
+      </button>
+    </aside>
+    <aside>
+      <button
+        class="btn btn-light btn-menu"
+        (click)="apresentarTela('Pessoas')"
+      >
+        Pessoas
+      </button>
+    </aside>
   </nav>
   <section>
     <!-- container de cadastro de pessoas (FORMULÁRIO) -->
-    <aside>
+    <aside *ngIf="this.tela === 'Cadastro'">
       <form #cadastro="ngForm" (submit)="cadastrar(cadastro)">
         <div class="form-group">
           <label for="nome" name="nome">Nome</label><br />
@@ -86,88 +107,90 @@
       </form>
       <small>Sistema de cadastro de pessoas!</small>
     </aside>
-    <!-- container de informações da pesquisa (Porcetagem de pessoas por sexo nas cidades) -->
-    <aside>
-      <h5 style="margin-bottom: 20px;">
-        Porcetagem de pessoas por sexo nas cidades
-      </h5>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Cidade</th>
-            <th scope="col">% Feminino</th>
-            <th scope="col">% Masculino</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Palmas</td>
-            <td>%</td>
-            <td>%</td>
-          </tr>
-          <tr>
-            <td>Porto Nacional</td>
-            <td>%</td>
-            <td>%</td>
-          </tr>
-          <tr>
-            <td>Paraíso</td>
-            <td>%</td>
-            <td>%</td>
-          </tr>
-        </tbody>
-      </table>
-    </aside>
-    <!-- container de informações da pesquisa (Média de idade em cada cidade) -->
-    <aside>
-      <h5 style="margin-bottom: 20px; margin-top: 30px;">
-        Média de idade em cada cidade
-      </h5>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Palmas</th>
-            <th>Paraíso</th>
-            <th>Porto Nacional</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </aside>
-    <!-- container de informações da pesquisa (Homens e Mulheres com maior e menor idade.) -->
-    <aside>
-      <h5 style="margin-bottom: 20px; margin-top: 30px;">
-        Homens e Mulheres com maior e menor idade.
-      </h5>
-      <table class="table table-striped">
-        <tbody>
-          <tr>
-            <td>Pessoa mais velha:</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Pessoa mais nova:</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Média de idade das Mulheres</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Média de idade dos Homes</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </aside>
+    <section *ngIf="this.tela === 'Estatística'">
+      <!-- container de informações da pesquisa (Porcetagem de pessoas por sexo nas cidades) -->
+      <aside>
+        <h5 style="margin-bottom: 20px;">
+          Porcetagem de pessoas por sexo nas cidades
+        </h5>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Cidade</th>
+              <th scope="col">% Feminino</th>
+              <th scope="col">% Masculino</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Palmas</td>
+              <td>%</td>
+              <td>%</td>
+            </tr>
+            <tr>
+              <td>Porto Nacional</td>
+              <td>%</td>
+              <td>%</td>
+            </tr>
+            <tr>
+              <td>Paraíso</td>
+              <td>%</td>
+              <td>%</td>
+            </tr>
+          </tbody>
+        </table>
+      </aside>
+      <!-- container de informações da pesquisa (Média de idade em cada cidade) -->
+      <aside>
+        <h5 style="margin-bottom: 20px; margin-top: 30px;">
+          Média de idade em cada cidade
+        </h5>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Palmas</th>
+              <th>Paraíso</th>
+              <th>Porto Nacional</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </aside>
+      <!-- container de informações da pesquisa (Homens e Mulheres com maior e menor idade.) -->
+      <aside>
+        <h5 style="margin-bottom: 20px; margin-top: 30px;">
+          Homens e Mulheres com maior e menor idade.
+        </h5>
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <td>Pessoa mais velha:</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Pessoa mais nova:</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Média de idade das Mulheres</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Média de idade dos Homes</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </aside>
+    </section>
     <!-- container de infromações da pesquisa (Realação das pessoas) -->
-    <aside>
+    <aside *ngIf="this.tela === 'Pessoas'">
       <h5 style="margin-bottom: 20px; margin-top: 30px;">
         Lista de pessoas que responderam questionário
       </h5>
