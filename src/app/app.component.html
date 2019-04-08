@@ -82,13 +82,16 @@
           <label for="cidade" name="cidade">Cidade</label> <br />
           <select
             class="form-control"
-            [(ngModel)]="cidade"
+            [(ngModel)]="selecionaCidade"
             name="cidade"
             required
           >
-            <option value="Palmas">Palmas</option>
-            <option value="Paraíso">Paraiso</option>
-            <option value="Porto Nacional">Porto Nacional</option>
+            <option
+              *ngFor="let cidade of this.pessoa.getListarCidade()"
+              [value]="cidade"
+            >
+              {{ cidade }}
+            </option>
           </select>
         </div>
         <!-- /caixa de botões -->
@@ -124,17 +127,17 @@
           <tbody>
             <tr>
               <td>Palmas</td>
-              <td>%</td>
+              <td>{{ this.pessoa.getPorcetagemMulherPalmas() }} %</td>
               <td>{{ this.pessoa.getPorcetagemHomemPalmas() }} %</td>
             </tr>
             <tr>
               <td>Porto Nacional</td>
-              <td>%</td>
+              <td>{{ this.pessoa.getPorcetagemMulherPorto() }} %</td>
               <td>{{ this.pessoa.getPorcetagemHomemPorto() }} %</td>
             </tr>
             <tr>
               <td>Paraíso</td>
-              <td>%</td>
+              <td>{{ this.pessoa.getPorcetagemMulherParaiso() }} %</td>
               <td>{{ this.pessoa.getPorcetagemHomemParaiso() }} %</td>
             </tr>
           </tbody>
@@ -148,16 +151,22 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Palmas</th>
-              <th>Paraíso</th>
-              <th>Porto Nacional</th>
+              <th>Cidades</th>
+              <th>Média</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>{{ this.pessoa.getIdadeMediaPalmas() }}</td>
-              <td>{{ this.pessoa.getIdadeMediaParaiso() }}</td>
-              <td>{{ this.pessoa.getIdadeMediaPorto() }}</td>
+            <tr *ngFor="let cidade of this.pessoa.getListarCidade()">
+              <td>{{ cidade }}</td>
+              <td *ngIf="cidade === 'Palmas'">
+                {{ this.pessoa.getIdadeMediaPalmas() }}
+              </td>
+              <td *ngIf="cidade === 'Paraíso'">
+                {{ this.pessoa.getIdadeMediaParaiso() }}
+              </td>
+              <td *ngIf="cidade === 'Porto Nacional'">
+                {{ this.pessoa.getIdadeMediaPorto() }}
+              </td>
             </tr>
           </tbody>
         </table>
