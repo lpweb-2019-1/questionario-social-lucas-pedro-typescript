@@ -125,17 +125,17 @@
             <tr>
               <td>Palmas</td>
               <td>%</td>
-              <td>%</td>
+              <td>{{ this.pessoa.getPorcetagemHomemPalmas() }} %</td>
             </tr>
             <tr>
               <td>Porto Nacional</td>
               <td>%</td>
-              <td>%</td>
+              <td>{{ this.pessoa.getPorcetagemHomemPorto() }} %</td>
             </tr>
             <tr>
               <td>Paraíso</td>
               <td>%</td>
-              <td>%</td>
+              <td>{{ this.pessoa.getPorcetagemHomemParaiso() }} %</td>
             </tr>
           </tbody>
         </table>
@@ -155,9 +155,9 @@
           </thead>
           <tbody>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{{ this.pessoa.getIdadeMediaPalmas() }}</td>
+              <td>{{ this.pessoa.getIdadeMediaParaiso() }}</td>
+              <td>{{ this.pessoa.getIdadeMediaPorto() }}</td>
             </tr>
           </tbody>
         </table>
@@ -171,15 +171,15 @@
           <tbody>
             <tr>
               <td>Pessoa mais velha:</td>
-              <td></td>
+              <td>{{ this.pessoa.getPessoaMaisVelha() }}</td>
             </tr>
             <tr>
               <td>Pessoa mais nova:</td>
-              <td></td>
+              <td>{{ this.pessoa.getPessoaMaisNova() }}</td>
             </tr>
             <tr>
               <td>Média de idade das Mulheres</td>
-              <td></td>
+              <td>{{ this.pessoa.getMediaIdadeMulher() }}</td>
             </tr>
             <tr>
               <td>Média de idade dos Homes</td>
