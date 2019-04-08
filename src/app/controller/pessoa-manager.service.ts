@@ -127,15 +127,15 @@ export class PessoaManagerService {
     // soma_idade_h.toFixed(1) || paserFloat(x)
 
     this.setPorcetagemHomemPalmas(
-      100 / (qnt_homem_palmas * (qnt_homem_palmas + qnt_mulher_palmas))
-    ).toFixed(1);
+      (qnt_homem_palmas * 100) / (qnt_homem_palmas + qnt_mulher_palmas)
+    ).toFixed();
 
     this.setPorcetagemHomemPorto(
-      100 / (qnt_homem_porto * (qnt_homem_porto + qnt_mulher_porto))
+      (qnt_homem_porto * 100) / (qnt_homem_porto + qnt_mulher_porto)
     ).toFixed(1);
 
     this.setPorcetagemHomemParaiso(
-      100 / (qnt_homem_paraiso * (qnt_homem_paraiso + qnt_mulher_paraiso))
+      (qnt_homem_paraiso * 100) / (qnt_homem_paraiso + qnt_mulher_paraiso)
     ).toFixed(1);
   };
 
