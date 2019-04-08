@@ -38,8 +38,7 @@ export class PessoaManagerService {
     JSON.parse(localStorage.getItem("Pessoas")) || [];
 
   constructor() {
-    this.mediaIdadeHomemMulher();
-    this.pessoaMaisVelhaNova();
+    this.renderEstatistica();
   }
 
   salvar = (pessoa: DadosPessoa): void => {
@@ -47,7 +46,7 @@ export class PessoaManagerService {
       new Pessoa(pessoa.nome, pessoa.sexo, pessoa.idade, pessoa.cidade)
     );
     this.isSalvar();
-    console.log(this.getListarCidade());
+    this.renderEstatistica();
   };
 
   getListarPessoa = (): Array<Pessoa> => this.lista_pessoas;
@@ -73,7 +72,7 @@ export class PessoaManagerService {
     });
   }
 
-  mediaIdadeHomemMulher = (): void => {
+  renderEstatistica = (): void => {
     let soma_idade_m = 0;
     let soma_idade_h = 0;
 
@@ -135,6 +134,10 @@ export class PessoaManagerService {
         }
       }
     }
+    /**
+     * @description *Método que retorna pessoa com maior idade e menor idade*
+     */
+    this.pessoaMaisVelhaNova();
 
     /**
      *
