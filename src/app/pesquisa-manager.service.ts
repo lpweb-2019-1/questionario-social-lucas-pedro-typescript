@@ -28,6 +28,11 @@ export class PesquisaManagerService {
   };
 
   pessoaMaisVelha = (): string => {
+    /**
+     * @description Caso a lista de pessoas esteja vazia retorna null
+     */
+    if (!this.getListaPessoas().length) return null;
+
     let maiorIdade = 0;
     let pessoaMaisVelha: string;
     for (let i = 0; i < this.getListaPessoas().length; i++) {
@@ -40,6 +45,11 @@ export class PesquisaManagerService {
   };
 
   pessoaMaisNova = (): string => {
+    /**
+     * @description Caso a lista de pessoas esteja vazia retorna null
+     */
+    if (!this.getListaPessoas().length) return null;
+
     let menorIdade = 999;
     let pessoaMaisNova: string;
     for (let i = 0; i < this.getListaPessoas().length; i++) {
@@ -51,7 +61,12 @@ export class PesquisaManagerService {
     return pessoaMaisNova;
   };
 
-  mediaIdadeHomemMulher = (): object | {} => {
+  mediaIdadeHomemMulher = (): object | {} | null => {
+    /**
+     * @description Caso a lista de pessoas esteja vazia retorna null
+     */
+    if (!this.getListaPessoas().length) return null;
+
     let qntMulher = 0;
     let somaIdadeMulher = 0;
     let mediaIdadeMulher;
@@ -80,6 +95,57 @@ export class PesquisaManagerService {
       mediaIdadeMulher
     };
     return mediaIdade;
+  };
+
+  mediaIdadePessoaCidade = (): object | null => {
+    /**
+     * @description Caso a lista de pessoas esteja vazia retorna null
+     */
+    if (!this.getListaPessoas().length) return null;
+
+    let qntPessoaPalmas: number = 0;
+    let qntPessoaParaiso: number = 0;
+    let qntPessoaPorto: number = 0;
+
+    let somaIdadePalmas: number = 0;
+    let somaIdadeParaiso: number = 0;
+    let somaIdadePorto: number = 0;
+
+    let mediaIdadePalmas: number = 0;
+    let mediaIdadePorto: number = 0;
+    let mediaIdadeParaiso: number = 0;
+
+    for (let i = 0; i < this.getListaPessoas().length; i++) {
+      switch (this.getListaPessoas()[i].cidade) {
+        case "Palmas": {
+          qntPessoaPalmas++;
+          somaIdadePalmas += this.getListaPessoas()[i].idade;
+          break;
+        }
+        case "Paraíso": {
+          qntPessoaParaiso++;
+          somaIdadeParaiso += this.getListaPessoas()[i].idade;
+          break;
+        }
+        case "Porto Nacional": {
+          qntPessoaPorto++;
+          somaIdadePorto += this.getListaPessoas()[i].idade;
+          break;
+        }
+      }
+    }
+
+    mediaIdadePalmas = Math.round(somaIdadePalmas / qntPessoaPalmas);
+    mediaIdadeParaiso = Math.round(somaIdadeParaiso / qntPessoaParaiso);
+    mediaIdadePorto = Math.round(somaIdadePorto / qntPessoaPorto);
+
+    const media = {
+      mediaIdadePalmas,
+      mediaIdadeParaiso,
+      mediaIdadePorto
+    };
+
+    return media;
   };
 }
 interface DadosPessoa {

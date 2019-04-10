@@ -159,13 +159,13 @@
             <tr *ngFor="let cidade of pessoa.getListarCidade()">
               <td>{{ cidade }}</td>
               <td *ngIf="cidade === 'Palmas'">
-                {{ pessoa.getIdadeMediaPalmas() }}
+                {{ pesquisa.mediaIdadePessoaCidade()?.mediaIdadePalmas }}
               </td>
               <td *ngIf="cidade === 'Paraíso'">
-                {{ pessoa.getIdadeMediaParaiso() }}
+                {{ pesquisa.mediaIdadePessoaCidade()?.mediaIdadeParaiso }}
               </td>
               <td *ngIf="cidade === 'Porto Nacional'">
-                {{ pessoa.getIdadeMediaPorto() }}
+                {{ pesquisa.mediaIdadePessoaCidade()?.mediaIdadePorto }}
               </td>
             </tr>
           </tbody>
@@ -180,7 +180,13 @@
           <tbody>
             <tr>
               <td>Pessoa mais velha:</td>
-              <td>{{ pesquisa.pessoaMaisVelha() }}</td>
+              <td>
+                {{
+                  pesquisa.pessoaMaisVelha()
+                    ? pesquisa.pessoaMaisVelha()
+                    : "Nenhuma informação."
+                }}
+              </td>
             </tr>
             <tr>
               <td>Pessoa mais nova:</td>
