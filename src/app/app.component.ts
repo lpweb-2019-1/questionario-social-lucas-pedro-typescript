@@ -15,10 +15,7 @@ export class AppComponent implements OnInit {
   selecionaCidade: string = null;
 
   tela: string = "home";
-  constructor(
-    private pessoa: PessoaManagerService,
-    private pesquisa: PesquisaManagerService
-  ) {}
+  constructor(private pesquisa: PesquisaManagerService) {}
 
   ngOnInit() {}
 
@@ -29,7 +26,7 @@ export class AppComponent implements OnInit {
       idade: this.idade,
       cidade: this.selecionaCidade
     };
-    this.pessoa.salvar(dados);
+    this.pesquisa.salvar(dados);
     form.reset();
   };
 

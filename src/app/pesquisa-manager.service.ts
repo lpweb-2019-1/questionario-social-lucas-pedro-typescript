@@ -9,7 +9,13 @@ export class PesquisaManagerService {
   private listaPessoas: Array<Pessoa> =
     JSON.parse(localStorage.getItem("Pessoas")) || [];
 
-  constructor() {}
+  constructor() {
+    this.pessoaMaisNova();
+    this.pessoaMaisVelha();
+    this.mediaIdadeHomemMulher();
+    this.mediaIdadePessoaCidade();
+    this.porcentagemHomemMulher();
+  }
 
   /**
    * @method salvar(pessoa) salva uma instância de Pessoa() no Array listaPessoas e
@@ -18,7 +24,12 @@ export class PesquisaManagerService {
     this.getListaPessoas().push(
       new Pessoa(pessoa.nome, pessoa.sexo, pessoa.idade, pessoa.cidade)
     );
+    this.pessoaMaisNova();
+    this.pessoaMaisVelha();
     this.salvarLocalStorage();
+    this.mediaIdadeHomemMulher();
+    this.mediaIdadePessoaCidade();
+    this.porcentagemHomemMulher();
   };
 
   /**
@@ -40,6 +51,7 @@ export class PesquisaManagerService {
       await JSON.stringify(this.getListaPessoas())
     );
   };
+
   /**
    * @function pessoaMaisVelha() Retorna pessoa de idade mais avançada.
    */
@@ -180,7 +192,7 @@ export class PesquisaManagerService {
     /**
      * @description Caso a lista de pessoas esteja vazia retorna null
      */
-    if (this.getListaPessoas().length) return null;
+    if (!this.getListaPessoas().length) return null;
 
     let qntHomemPalmas: number = 0;
     let qntHomemParaiso: number = 0;
