@@ -50,6 +50,37 @@ export class PesquisaManagerService {
     }
     return pessoaMaisNova;
   };
+
+  mediaIdadeHomemMulher = (): object | {} => {
+    let qntMulher = 0;
+    let somaIdadeMulher = 0;
+    let mediaIdadeMulher;
+
+    let qntHomem = 0;
+    let somaIdadeHomem = 0;
+    let mediaIdadeHomem;
+
+    for (let i = 0; i < this.getListaPessoas().length; i++) {
+      if (this.getListaPessoas()[i].sexo === "Feminino") {
+        qntMulher++;
+        somaIdadeMulher += this.getListaPessoas()[i].idade;
+      } else if (this.getListaPessoas()[i].sexo === "Masculino") {
+        qntHomem++;
+        somaIdadeHomem += this.getListaPessoas()[i].idade;
+      }
+    }
+    /**
+     * @description Calculo das médias de idade de Homens e Mulheres.
+     */
+    mediaIdadeHomem = Math.round(somaIdadeHomem / qntHomem).toFixed(1);
+    mediaIdadeMulher = Math.round(somaIdadeMulher / qntMulher).toFixed(1);
+
+    const mediaIdade = {
+      mediaIdadeHomem,
+      mediaIdadeMulher
+    };
+    return mediaIdade;
+  };
 }
 interface DadosPessoa {
   nome: string;
