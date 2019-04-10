@@ -87,7 +87,7 @@
             required
           >
             <option
-              *ngFor="let cidade of pessoa.getListarCidade()"
+              *ngFor="let cidade of pesquisa.getListaCidades()"
               [value]="cidade"
             >
               {{ cidade }}
@@ -127,23 +127,31 @@
           <tbody>
             <tr>
               <td>Palmas</td>
-              <td>{{ pessoa.getPorcetagemMulherPalmas() }} %</td>
               <td>
-                {{ pesquisa.porcentagemHomemMulher().porcentoHomem.palmas }} %
+                {{ pesquisa.porcentagemHomemMulher()?.porcentoMulher.palmas }}
+                %
+              </td>
+              <td>
+                {{ pesquisa.porcentagemHomemMulher()?.porcentoHomem.palmas }} %
               </td>
             </tr>
             <tr>
               <td>Porto Nacional</td>
-              <td>{{ pessoa.getPorcetagemMulherPorto() }} %</td>
               <td>
-                {{ pesquisa.porcentagemHomemMulher().porcentoHomem.porto }} %
+                {{ pesquisa.porcentagemHomemMulher()?.porcentoMulher.porto }} %
+              </td>
+              <td>
+                {{ pesquisa.porcentagemHomemMulher()?.porcentoHomem.porto }} %
               </td>
             </tr>
             <tr>
               <td>Paraíso</td>
-              <td>{{ pessoa.getPorcetagemMulherParaiso() }} %</td>
               <td>
-                {{ pesquisa.porcentagemHomemMulher().porcentoHomem.paraiso }} %
+                {{ pesquisa.porcentagemHomemMulher()?.porcentoMulher.paraiso }}
+                %
+              </td>
+              <td>
+                {{ pesquisa.porcentagemHomemMulher()?.porcentoHomem.paraiso }} %
               </td>
             </tr>
           </tbody>
@@ -162,7 +170,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let cidade of pessoa.getListarCidade()">
+            <tr *ngFor="let cidade of pesquisa.getListaCidades()">
               <td>{{ cidade }}</td>
               <td *ngIf="cidade === 'Palmas'">
                 {{ pesquisa.mediaIdadePessoaCidade()?.mediaIdadePalmas }}
@@ -200,11 +208,11 @@
             </tr>
             <tr>
               <td>Média de idade das Mulheres</td>
-              <td>{{ pesquisa.mediaIdadeHomemMulher().mediaIdadeMulher }}</td>
+              <td>{{ pesquisa.mediaIdadeHomemMulher()?.mediaIdadeMulher }}</td>
             </tr>
             <tr>
               <td>Média de idade dos Homes</td>
-              <td>{{ pesquisa.mediaIdadeHomemMulher().mediaIdadeHomem }}</td>
+              <td>{{ pesquisa.mediaIdadeHomemMulher()?.mediaIdadeHomem }}</td>
             </tr>
           </tbody>
         </table>

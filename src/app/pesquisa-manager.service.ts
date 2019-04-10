@@ -11,6 +11,9 @@ export class PesquisaManagerService {
 
   constructor() {}
 
+  /**
+   * @method salvar(pessoa) salva uma instância de Pessoa() no Array listaPessoas e
+   */
   salvar = (pessoa: DadosPessoa) => {
     this.getListaPessoas().push(
       new Pessoa(pessoa.nome, pessoa.sexo, pessoa.idade, pessoa.cidade)
@@ -18,8 +21,19 @@ export class PesquisaManagerService {
     this.salvarLocalStorage();
   };
 
+  /**
+   * @method getListaPessoas() retorn a lista de pessoas cadastradas.
+   */
   getListaPessoas = (): Array<Pessoa> => this.listaPessoas;
+
+  /**
+   * @method getListaCidades() return a lista de cidades
+   */
   getListaCidades = (): Array<string> => this.listaCidades;
+
+  /**
+   * @method salvarLocalStorage() salva o array de lista de pessoas no localStorage()
+   */
   salvarLocalStorage = async () => {
     localStorage.setItem(
       "Pessoas",
@@ -166,7 +180,7 @@ export class PesquisaManagerService {
     /**
      * @description Caso a lista de pessoas esteja vazia retorna null
      */
-    if (!this.getListaPessoas().length) return null;
+    if (this.getListaPessoas().length) return null;
 
     let qntHomemPalmas: number = 0;
     let qntHomemParaiso: number = 0;
@@ -252,6 +266,10 @@ export class PesquisaManagerService {
     return { porcentoHomem, porcentoMulher };
   };
 }
+
+/**
+ * @interface DadosPessoa {} Defino uma interface de dados para cada pessoa.
+ */
 interface DadosPessoa {
   nome: string;
   sexo: string;
