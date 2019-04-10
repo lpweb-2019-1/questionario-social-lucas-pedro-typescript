@@ -21,14 +21,6 @@
         Estatística
       </button>
     </aside>
-    <aside>
-      <button
-        class="btn btn-light btn-menu"
-        (click)="apresentarTela('Pessoas')"
-      >
-        Pessoas
-      </button>
-    </aside>
   </nav>
   <section>
     <!-- container de cadastro de pessoas (FORMULÁRIO) -->
@@ -49,21 +41,29 @@
         <div class="form-group">
           <label class="sexo" for="sexo" name="sexo">Sexo</label><br />
           <input
+            id="Masculino"
+            for="Masculino"
             class="sexo"
             [(ngModel)]="sexo"
             type="radio"
             name="sexo"
             value="Masculino"
           />
-          <label class="sexo" name="Masculino"> Masculino </label>
+          <label class="sexo" name="Masculino" id="Masculino" for="Masculino">
+            Masculino
+          </label>
           <input
+            for="Feminino"
+            id="Feminino"
             class="sexo"
             [(ngModel)]="sexo"
             type="radio"
             name="sexo"
             value="Feminino"
           />
-          <label class="sexo" for="Feminino" name="Feminino">Feminino </label>
+          <label class="sexo" id="Feminino" for="Feminino" name="Feminino"
+            >Feminino
+          </label>
         </div>
         <!-- /caixa de idade\ -->
         <div class="form-group">
@@ -87,7 +87,7 @@
             required
           >
             <option
-              *ngFor="let cidade of this.pessoa.getListarCidade()"
+              *ngFor="let cidade of pessoa.getListarCidade()"
               [value]="cidade"
             >
               {{ cidade }}
@@ -127,18 +127,18 @@
           <tbody>
             <tr>
               <td>Palmas</td>
-              <td>{{ this.pessoa.getPorcetagemMulherPalmas() }} %</td>
-              <td>{{ this.pessoa.getPorcetagemHomemPalmas() }} %</td>
+              <td>{{ pessoa.getPorcetagemMulherPalmas() }} %</td>
+              <td>{{ pessoa.getPorcetagemHomemPalmas() }} %</td>
             </tr>
             <tr>
               <td>Porto Nacional</td>
-              <td>{{ this.pessoa.getPorcetagemMulherPorto() }} %</td>
-              <td>{{ this.pessoa.getPorcetagemHomemPorto() }} %</td>
+              <td>{{ pessoa.getPorcetagemMulherPorto() }} %</td>
+              <td>{{ pessoa.getPorcetagemHomemPorto() }} %</td>
             </tr>
             <tr>
               <td>Paraíso</td>
-              <td>{{ this.pessoa.getPorcetagemMulherParaiso() }} %</td>
-              <td>{{ this.pessoa.getPorcetagemHomemParaiso() }} %</td>
+              <td>{{ pessoa.getPorcetagemMulherParaiso() }} %</td>
+              <td>{{ pessoa.getPorcetagemHomemParaiso() }} %</td>
             </tr>
           </tbody>
         </table>
@@ -156,16 +156,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let cidade of this.pessoa.getListarCidade()">
+            <tr *ngFor="let cidade of pessoa.getListarCidade()">
               <td>{{ cidade }}</td>
               <td *ngIf="cidade === 'Palmas'">
-                {{ this.pessoa.getIdadeMediaPalmas() }}
+                {{ pessoa.getIdadeMediaPalmas() }}
               </td>
               <td *ngIf="cidade === 'Paraíso'">
-                {{ this.pessoa.getIdadeMediaParaiso() }}
+                {{ pessoa.getIdadeMediaParaiso() }}
               </td>
               <td *ngIf="cidade === 'Porto Nacional'">
-                {{ this.pessoa.getIdadeMediaPorto() }}
+                {{ pessoa.getIdadeMediaPorto() }}
               </td>
             </tr>
           </tbody>
@@ -180,47 +180,23 @@
           <tbody>
             <tr>
               <td>Pessoa mais velha:</td>
-              <td>{{ this.pessoa.getPessoaMaisVelha() }}</td>
+              <td>{{ pessoa.getPessoaMaisVelha() }}</td>
             </tr>
             <tr>
               <td>Pessoa mais nova:</td>
-              <td>{{ this.pessoa.getPessoaMaisNova() }}</td>
+              <td>{{ pessoa.getPessoaMaisNova() }}</td>
             </tr>
             <tr>
               <td>Média de idade das Mulheres</td>
-              <td>{{ this.pessoa.getMediaIdadeMulher() }}</td>
+              <td>{{ pessoa.getMediaIdadeMulher() }}</td>
             </tr>
             <tr>
               <td>Média de idade dos Homes</td>
-              <td>{{ this.pessoa.getMediaIdadeHomem() }}</td>
+              <td>{{ pessoa.getMediaIdadeHomem() }}</td>
             </tr>
           </tbody>
         </table>
       </aside>
     </section>
-    <!-- container de infromações da pesquisa (Realação das pessoas) -->
-    <aside *ngIf="this.tela === 'Pessoas'">
-      <h5 style="margin-bottom: 20px; margin-top: 30px;">
-        Lista de pessoas que responderam questionário
-      </h5>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Sexo</th>
-            <th>Idade</th>
-            <th>Cidade</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let pessoa of this.pessoa.getListarPessoa()">
-            <td>{{ pessoa.nome }}</td>
-            <td>{{ pessoa.sexo }}</td>
-            <td>{{ pessoa.idade }}</td>
-            <td>{{ pessoa.cidade }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </aside>
   </section>
 </div>

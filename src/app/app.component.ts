@@ -25,8 +25,6 @@ export class AppComponent implements OnInit {
       idade: this.idade,
       cidade: this.selecionaCidade
     };
-    console.log(this.selecionaCidade);
-
     this.pessoa.salvar(dados);
     form.reset();
   };
