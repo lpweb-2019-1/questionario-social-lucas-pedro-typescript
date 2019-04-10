@@ -21,14 +21,6 @@
         Estatística
       </button>
     </aside>
-    <!-- <aside>
-      <button
-        class="btn btn-light btn-menu"
-        (click)="apresentarTela('Pessoas')"
-      >
-        Pessoas
-      </button>
-    </aside> -->
   </nav>
   <section>
     <!-- container de cadastro de pessoas (FORMULÁRIO) -->
@@ -206,29 +198,5 @@
         </table>
       </aside>
     </section>
-    <!-- container de infromações da pesquisa (Realação das pessoas) -->
-    <aside *ngIf="this.tela === 'Pessoas'">
-      <h5 style="margin-bottom: 20px; margin-top: 30px;">
-        Lista de pessoas que responderam questionário
-      </h5>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Sexo</th>
-            <th>Idade</th>
-            <th>Cidade</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let pessoa of pessoa.getListarPessoa()">
-            <td>{{ pessoa.nome }}</td>
-            <td>{{ pessoa.sexo }}</td>
-            <td>{{ pessoa.idade }}</td>
-            <td>{{ pessoa.cidade }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </aside>
   </section>
 </div>
