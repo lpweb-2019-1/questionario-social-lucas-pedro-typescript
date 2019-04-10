@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { PessoaManagerService } from "./controller/pessoa-manager.service";
 import { PesquisaManagerService } from "./pesquisa-manager.service";
 
 @Component({
