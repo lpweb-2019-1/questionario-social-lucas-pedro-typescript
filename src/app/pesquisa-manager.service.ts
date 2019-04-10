@@ -147,6 +147,96 @@ export class PesquisaManagerService {
 
     return media;
   };
+
+  porcentagemHomemMulher = (): object | {} => {
+    /**
+     * @description Caso a lista de pessoas esteja vazia retorna null
+     */
+    if (!this.getListaPessoas().length) return null;
+
+    let qntHomemPalmas: number = 0;
+    let qntHomemParaiso: number = 0;
+    let qntHomemPorto: number = 0;
+
+    let qntMulherPalmas: number = 0;
+    let qntMulherParaiso: number = 0;
+    let qntMulherPorto: number = 0;
+
+    for (let i = 0; i < this.getListaPessoas().length; i++) {
+      if (
+        this.getListaPessoas()[i].sexo === "Masculino" ||
+        this.getListaPessoas()[i].sexo === "masculino"
+      ) {
+        switch (this.getListaPessoas()[i].cidade) {
+          case "Palmas": {
+            qntHomemPalmas++;
+            break;
+          }
+          case "Paraíso": {
+            qntHomemParaiso++;
+            break;
+          }
+          case "Porto Nacional": {
+            qntHomemPorto++;
+            break;
+          }
+        }
+      } else if (
+        this.getListaPessoas()[i].sexo === "Feminino" ||
+        this.getListaPessoas()[i].sexo === "feminino"
+      ) {
+        switch (this.getListaPessoas()[i].cidade) {
+          case "Palmas": {
+            qntMulherPalmas++;
+            break;
+          }
+          case "Paraíso": {
+            qntMulherParaiso++;
+            break;
+          }
+          case "Porto Nacional": {
+            qntMulherPorto++;
+            break;
+          }
+        }
+      }
+    }
+
+    /**
+     * @description Cálculo da porcentagem de Homens por cidades.
+     */
+    const porcentoHomem = {
+      palmas: Math.round(
+        (qntHomemPalmas * 100) / (qntHomemPalmas + qntMulherPalmas)
+      ),
+      paraiso: Math.round(
+        (qntHomemParaiso * 100) / (qntHomemParaiso + qntMulherParaiso)
+      ),
+      porto: Math.round(
+        (qntHomemPorto * 100) / (qntHomemPorto + qntMulherPorto)
+      )
+    };
+
+    /**
+     * @description Cálculo da porcentagem de Mulheres por cidades.
+     */
+    const porcentoMulher = {
+      palmas: Math.round(
+        (qntMulherPalmas * 100) / (qntMulherPalmas + qntHomemPalmas)
+      ),
+      paraiso: Math.round(
+        (qntMulherParaiso * 100) / (qntMulherParaiso + qntHomemParaiso)
+      ),
+      porto: Math.round(
+        (qntMulherPorto * 100) / (qntMulherPorto + qntHomemPorto)
+      )
+    };
+
+    /**
+     * @return object com dois atributo.
+     */
+    return { porcentoHomem, porcentoMulher };
+  };
 }
 interface DadosPessoa {
   nome: string;
