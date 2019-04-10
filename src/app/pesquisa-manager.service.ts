@@ -38,6 +38,18 @@ export class PesquisaManagerService {
     }
     return pessoaMaisVelha;
   };
+
+  pessoaMaisNova = (): string => {
+    let menorIdade = 999;
+    let pessoaMaisNova: string;
+    for (let i = 0; i < this.getListaPessoas().length; i++) {
+      if (this.getListaPessoas()[i].idade < menorIdade) {
+        menorIdade = this.getListaPessoas()[i].idade;
+        pessoaMaisNova = this.getListaPessoas()[i].nome;
+      }
+    }
+    return pessoaMaisNova;
+  };
 }
 interface DadosPessoa {
   nome: string;
