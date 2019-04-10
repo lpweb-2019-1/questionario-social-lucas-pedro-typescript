@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { Pessoa } from "./pessoa/pessoa";
-import { async } from "q";
 
 @Injectable({
   providedIn: "root"
@@ -16,8 +15,7 @@ export class PesquisaManagerService {
     this.getListaPessoas().push(
       new Pessoa(pessoa.nome, pessoa.sexo, pessoa.idade, pessoa.cidade)
     );
-    console.log(this.getListaPessoas());
-    // this.salvarLocalStorage();
+    this.salvarLocalStorage();
   };
 
   getListaPessoas = (): Array<Pessoa> => this.listaPessoas;
@@ -32,10 +30,10 @@ export class PesquisaManagerService {
   pessoaMaisVelha = (): string => {
     let maiorIdade = 0;
     let pessoaMaisVelha: string;
-    for (let i = 0; i <= this.getListaPessoas.length; i++) {
-      if (this.getListaPessoas[i].idade > maiorIdade) {
-        maiorIdade = this.getListaPessoas[i].idade;
-        pessoaMaisVelha = this.getListaPessoas[i].nome;
+    for (let i = 0; i < this.getListaPessoas().length; i++) {
+      if (this.getListaPessoas()[i].idade > maiorIdade) {
+        maiorIdade = this.getListaPessoas()[i].idade;
+        pessoaMaisVelha = this.getListaPessoas()[i].nome;
       }
     }
     return pessoaMaisVelha;
