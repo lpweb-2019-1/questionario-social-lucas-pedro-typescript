@@ -26,7 +26,9 @@ export class PesquisaManagerService {
       await JSON.stringify(this.getListaPessoas())
     );
   };
-
+  /**
+   * @function pessoaMaisVelha() Retorna pessoa de idade mais avançada.
+   */
   pessoaMaisVelha = (): string => {
     /**
      * @description Caso a lista de pessoas esteja vazia retorna null
@@ -44,6 +46,9 @@ export class PesquisaManagerService {
     return pessoaMaisVelha;
   };
 
+  /**
+   * @function pessoaMaisNova() Retorna a pessoa de menor idade.
+   */
   pessoaMaisNova = (): string => {
     /**
      * @description Caso a lista de pessoas esteja vazia retorna null
@@ -61,6 +66,9 @@ export class PesquisaManagerService {
     return pessoaMaisNova;
   };
 
+  /**
+   * @function mediaIdadeHomemMulher() Retorna média de idade de homens e mulheres.
+   */
   mediaIdadeHomemMulher = (): object | {} | null => {
     /**
      * @description Caso a lista de pessoas esteja vazia retorna null
@@ -97,6 +105,9 @@ export class PesquisaManagerService {
     return mediaIdade;
   };
 
+  /**
+   * @function mediaIdadePessoaCidade() Retorna a média da idade de Homens e Mulheres por cidade.
+   */
   mediaIdadePessoaCidade = (): object | null => {
     /**
      * @description Caso a lista de pessoas esteja vazia retorna null
@@ -148,6 +159,9 @@ export class PesquisaManagerService {
     return media;
   };
 
+  /**
+   * @function porcentagemHomemMulher() retorna a porcetagem de homens e mulheres por cidade.
+   */
   porcentagemHomemMulher = (): object | {} => {
     /**
      * @description Caso a lista de pessoas esteja vazia retorna null
