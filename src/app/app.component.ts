@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { PessoaManagerService } from "./controller/pessoa-manager.service";
+import { PesquisaManagerService } from "./pesquisa-manager.service";
 
 @Component({
   selector: "app-root",
@@ -14,7 +15,10 @@ export class AppComponent implements OnInit {
   selecionaCidade: string = null;
 
   tela: string = "home";
-  constructor(private pessoa: PessoaManagerService) {}
+  constructor(
+    private pessoa: PessoaManagerService,
+    private pesquisa: PesquisaManagerService
+  ) {}
 
   ngOnInit() {}
 
