@@ -87,7 +87,7 @@
             required
           >
             <option
-              *ngFor="let cidade of pessoa.getListarCidade()"
+              *ngFor="let cidade of pesquisa.getListaCidades()"
               [value]="cidade"
             >
               {{ cidade }}
@@ -127,18 +127,72 @@
           <tbody>
             <tr>
               <td>Palmas</td>
-              <td>{{ pessoa.getPorcetagemMulherPalmas() }} %</td>
-              <td>{{ pessoa.getPorcetagemHomemPalmas() }} %</td>
+              <td>
+                {{
+                  pesquisa
+                    .porcentagemHomemMulher()
+                    ?.porcentoMulher.palmas.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.porcentagemHomemMulher()?.porcentoMulher.palmas
+                }}
+                %
+              </td>
+              <td>
+                {{
+                  pesquisa
+                    .porcentagemHomemMulher()
+                    ?.porcentoHomem.palmas.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.porcentagemHomemMulher()?.porcentoHomem.palmas
+                }}
+                %
+              </td>
             </tr>
             <tr>
               <td>Porto Nacional</td>
-              <td>{{ pessoa.getPorcetagemMulherPorto() }} %</td>
-              <td>{{ pessoa.getPorcetagemHomemPorto() }} %</td>
+              <td>
+                {{
+                  pesquisa
+                    .porcentagemHomemMulher()
+                    ?.porcentoMulher.porto.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.porcentagemHomemMulher()?.porcentoMulher.porto
+                }}
+                %
+              </td>
+              <td>
+                {{
+                  pesquisa
+                    .porcentagemHomemMulher()
+                    ?.porcentoHomem.porto.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.porcentagemHomemMulher()?.porcentoHomem.porto
+                }}
+                %
+              </td>
             </tr>
             <tr>
               <td>Paraíso</td>
-              <td>{{ pessoa.getPorcetagemMulherParaiso() }} %</td>
-              <td>{{ pessoa.getPorcetagemHomemParaiso() }} %</td>
+              <td>
+                {{
+                  pesquisa
+                    .porcentagemHomemMulher()
+                    ?.porcentoMulher.paraiso.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.porcentagemHomemMulher()?.porcentoMulher.paraiso
+                }}
+                %
+              </td>
+              <td>
+                {{
+                  pesquisa
+                    .porcentagemHomemMulher()
+                    ?.porcentoHomem.paraiso.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.porcentagemHomemMulher()?.porcentoHomem.paraiso
+                }}
+                %
+              </td>
             </tr>
           </tbody>
         </table>
@@ -156,16 +210,34 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let cidade of pessoa.getListarCidade()">
+            <tr *ngFor="let cidade of pesquisa.getListaCidades()">
               <td>{{ cidade }}</td>
               <td *ngIf="cidade === 'Palmas'">
-                {{ pessoa.getIdadeMediaPalmas() }}
+                {{
+                  pesquisa
+                    .mediaIdadePessoaCidade()
+                    ?.mediaIdadePalmas.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.mediaIdadePessoaCidade().mediaIdadePalmas
+                }}
               </td>
               <td *ngIf="cidade === 'Paraíso'">
-                {{ pessoa.getIdadeMediaParaiso() }}
+                {{
+                  pesquisa
+                    .mediaIdadePessoaCidade()
+                    ?.mediaIdadeParaiso.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.mediaIdadePessoaCidade()?.mediaIdadeParaiso
+                }}
               </td>
               <td *ngIf="cidade === 'Porto Nacional'">
-                {{ pessoa.getIdadeMediaPorto() }}
+                {{
+                  pesquisa
+                    .mediaIdadePessoaCidade()
+                    ?.mediaIdadePorto.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.mediaIdadePessoaCidade()?.mediaIdadePorto
+                }}
               </td>
             </tr>
           </tbody>
@@ -180,19 +252,43 @@
           <tbody>
             <tr>
               <td>Pessoa mais velha:</td>
-              <td>{{ pesquisa.pessoaMaisVelha() }}</td>
+              <td>
+                {{
+                  pesquisa.pessoaMaisVelha()
+                    ? pesquisa.pessoaMaisVelha()
+                    : "Nenhuma informação."
+                }}
+              </td>
             </tr>
             <tr>
               <td>Pessoa mais nova:</td>
-              <td>{{ pesquisa.pessoaMaisNova() }}</td>
+              <td>
+                {{ pesquisa.pessoaMaisNova() }}
+              </td>
             </tr>
             <tr>
               <td>Média de idade das Mulheres</td>
-              <td>{{ pessoa.getMediaIdadeMulher() }}</td>
+              <td>
+                {{
+                  pesquisa
+                    .mediaIdadeHomemMulher()
+                    ?.mediaIdadeMulher.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.mediaIdadeHomemMulher()?.mediaIdadeMulher
+                }}
+              </td>
             </tr>
             <tr>
               <td>Média de idade dos Homes</td>
-              <td>{{ pessoa.getMediaIdadeHomem() }}</td>
+              <td>
+                {{
+                  pesquisa
+                    .mediaIdadeHomemMulher()
+                    ?.mediaIdadeHomem.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.mediaIdadeHomemMulher()?.mediaIdadeHomem
+                }}
+              </td>
             </tr>
           </tbody>
         </table>

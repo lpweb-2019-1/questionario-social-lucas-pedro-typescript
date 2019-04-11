@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { PessoaManagerService } from "./controller/pessoa-manager.service";
 import { PesquisaManagerService } from "./pesquisa-manager.service";
 
 @Component({
@@ -13,12 +12,9 @@ export class AppComponent implements OnInit {
   idade: number = null;
   cidade: string = null;
   selecionaCidade: string = null;
-
   tela: string = "home";
-  constructor(
-    private pessoa: PessoaManagerService,
-    private pesquisa: PesquisaManagerService
-  ) {}
+
+  constructor(private pesquisa: PesquisaManagerService) {}
 
   ngOnInit() {}
 
@@ -29,7 +25,7 @@ export class AppComponent implements OnInit {
       idade: this.idade,
       cidade: this.selecionaCidade
     };
-    this.pessoa.salvar(dados);
+    this.pesquisa.salvar(dados);
     form.reset();
   };
 
