@@ -128,30 +128,70 @@
             <tr>
               <td>Palmas</td>
               <td>
-                {{ pesquisa.porcentagemHomemMulher()?.porcentoMulher.palmas }}
+                {{
+                  pesquisa
+                    .porcentagemHomemMulher()
+                    ?.porcentoMulher.palmas.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.porcentagemHomemMulher()?.porcentoMulher.palmas
+                }}
                 %
               </td>
               <td>
-                {{ pesquisa.porcentagemHomemMulher()?.porcentoHomem.palmas }} %
+                {{
+                  pesquisa
+                    .porcentagemHomemMulher()
+                    ?.porcentoHomem.palmas.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.porcentagemHomemMulher()?.porcentoHomem.palmas
+                }}
+                %
               </td>
             </tr>
             <tr>
               <td>Porto Nacional</td>
               <td>
-                {{ pesquisa.porcentagemHomemMulher()?.porcentoMulher.porto }} %
+                {{
+                  pesquisa
+                    .porcentagemHomemMulher()
+                    ?.porcentoMulher.porto.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.porcentagemHomemMulher()?.porcentoMulher.porto
+                }}
+                %
               </td>
               <td>
-                {{ pesquisa.porcentagemHomemMulher()?.porcentoHomem.porto }} %
+                {{
+                  pesquisa
+                    .porcentagemHomemMulher()
+                    ?.porcentoHomem.porto.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.porcentagemHomemMulher()?.porcentoHomem.porto
+                }}
+                %
               </td>
             </tr>
             <tr>
               <td>Paraíso</td>
               <td>
-                {{ pesquisa.porcentagemHomemMulher()?.porcentoMulher.paraiso }}
+                {{
+                  pesquisa
+                    .porcentagemHomemMulher()
+                    ?.porcentoMulher.paraiso.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.porcentagemHomemMulher()?.porcentoMulher.paraiso
+                }}
                 %
               </td>
               <td>
-                {{ pesquisa.porcentagemHomemMulher()?.porcentoHomem.paraiso }} %
+                {{
+                  pesquisa
+                    .porcentagemHomemMulher()
+                    ?.porcentoHomem.paraiso.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.porcentagemHomemMulher()?.porcentoHomem.paraiso
+                }}
+                %
               </td>
             </tr>
           </tbody>
@@ -173,13 +213,33 @@
             <tr *ngFor="let cidade of pesquisa.getListaCidades()">
               <td>{{ cidade }}</td>
               <td *ngIf="cidade === 'Palmas'">
-                {{ pesquisa.mediaIdadePessoaCidade()?.mediaIdadePalmas }}
+                {{
+                  pesquisa
+                    .mediaIdadePessoaCidade()
+                    ?.mediaIdadePalmas.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.mediaIdadePessoaCidade().mediaIdadePalmas
+                }}
               </td>
               <td *ngIf="cidade === 'Paraíso'">
-                {{ pesquisa.mediaIdadePessoaCidade()?.mediaIdadeParaiso }}
+                {{
+                  pesquisa
+                    .mediaIdadePessoaCidade()
+                    ?.mediaIdadeParaiso.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.mediaIdadePessoaCidade()?.mediaIdadeParaiso
+                }}
               </td>
               <td *ngIf="cidade === 'Porto Nacional'">
-                {{ pesquisa.mediaIdadePessoaCidade()?.mediaIdadePorto }}
+                {{
+                  pesquisa
+                    .mediaIdadePessoaCidade()
+                    ?.mediaIdadePorto.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa
+                        .mediaIdadePessoaCidade()
+                        ?.mediaIdadePorto.toFixed(1)
+                }}
               </td>
             </tr>
           </tbody>
@@ -204,15 +264,33 @@
             </tr>
             <tr>
               <td>Pessoa mais nova:</td>
-              <td>{{ pesquisa.pessoaMaisNova() }}</td>
+              <td>
+                {{ pesquisa.pessoaMaisNova() }}
+              </td>
             </tr>
             <tr>
               <td>Média de idade das Mulheres</td>
-              <td>{{ pesquisa.mediaIdadeHomemMulher()?.mediaIdadeMulher }}</td>
+              <td>
+                {{
+                  pesquisa
+                    .mediaIdadeHomemMulher()
+                    ?.mediaIdadeMulher.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.mediaIdadeHomemMulher()?.mediaIdadeMulher
+                }}
+              </td>
             </tr>
             <tr>
               <td>Média de idade dos Homes</td>
-              <td>{{ pesquisa.mediaIdadeHomemMulher()?.mediaIdadeHomem }}</td>
+              <td>
+                {{
+                  pesquisa
+                    .mediaIdadeHomemMulher()
+                    ?.mediaIdadeHomem.toFixed(1) === "NaN"
+                    ? "Sem registro"
+                    : pesquisa.mediaIdadeHomemMulher()?.mediaIdadeHomem
+                }}
+              </td>
             </tr>
           </tbody>
         </table>

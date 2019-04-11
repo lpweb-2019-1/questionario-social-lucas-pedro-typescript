@@ -9,12 +9,15 @@ export class PesquisaManagerService {
   private listaPessoas: Array<Pessoa> =
     JSON.parse(localStorage.getItem("Pessoas")) || [];
 
+  a: bigint;
+
   constructor() {
     this.pessoaMaisNova();
     this.pessoaMaisVelha();
     this.mediaIdadeHomemMulher();
     this.mediaIdadePessoaCidade();
     this.porcentagemHomemMulher();
+    console.log(this.mediaIdadePessoaCidade());
   }
 
   /**
@@ -103,11 +106,11 @@ export class PesquisaManagerService {
 
     let qntMulher = 0;
     let somaIdadeMulher = 0;
-    let mediaIdadeMulher;
+    let mediaIdadeMulher = 0;
 
     let qntHomem = 0;
     let somaIdadeHomem = 0;
-    let mediaIdadeHomem;
+    let mediaIdadeHomem = 0;
 
     for (let i = 0; i < this.getListaPessoas().length; i++) {
       if (this.getListaPessoas()[i].sexo === "Feminino") {
@@ -121,8 +124,8 @@ export class PesquisaManagerService {
     /**
      * @description Calculo das médias de idade de Homens e Mulheres.
      */
-    mediaIdadeHomem = Math.round(somaIdadeHomem / qntHomem).toFixed(1);
-    mediaIdadeMulher = Math.round(somaIdadeMulher / qntMulher).toFixed(1);
+    mediaIdadeHomem = Math.round(somaIdadeHomem / qntHomem);
+    mediaIdadeMulher = Math.round(somaIdadeMulher / qntMulher);
 
     const mediaIdade = {
       mediaIdadeHomem,
