@@ -12,8 +12,8 @@ export class AppComponent implements OnInit {
   idade: number = null;
   cidade: string = null;
   selecionaCidade: string = null;
-
   tela: string = "home";
+
   constructor(private pesquisa: PesquisaManagerService) {}
 
   ngOnInit() {}
