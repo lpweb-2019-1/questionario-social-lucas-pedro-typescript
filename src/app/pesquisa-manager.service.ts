@@ -2,6 +2,9 @@
  *
  *
  * @author **Lucas Pedro Lopes**
+ * @class Pessoa{} as instância de Pessoa são criada aqui no service PessoaManageService.
+ * @description **Controlle** Toda lógica do app.componente.ts é de responsábilidade de PesquisaManager{}.
+ * @description *private* Todos os atributos de private só podem ser acessados por meio de alguma instância de PesquisaManagerService.
  */
 
 import { Injectable } from "@angular/core";
