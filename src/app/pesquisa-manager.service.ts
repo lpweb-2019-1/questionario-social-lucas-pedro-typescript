@@ -1,3 +1,9 @@
+/**
+ *
+ *
+ * @author **Lucas Pedro Lopes**
+ */
+
 import { Injectable } from "@angular/core";
 import { Pessoa } from "./pessoa/pessoa";
 
@@ -5,19 +11,22 @@ import { Pessoa } from "./pessoa/pessoa";
   providedIn: "root"
 })
 export class PesquisaManagerService {
+  /**
+   * @global Os array *<listaCidades>* *<listaPessoas>* são vistos em toda classe PesquisaManagerService
+   */
   private listaCidades: Array<string> = ["Palmas", "Paraíso", "Porto Nacional"];
   private listaPessoas: Array<Pessoa> =
     JSON.parse(localStorage.getItem("Pessoas")) || [];
 
-  a: bigint;
-
   constructor() {
+    /**
+     * @method Inicializaveis() Esses métodos são executados ao iniciar o sistema.
+     */
     this.pessoaMaisNova();
     this.pessoaMaisVelha();
     this.mediaIdadeHomemMulher();
     this.mediaIdadePessoaCidade();
     this.porcentagemHomemMulher();
-    console.log(this.mediaIdadePessoaCidade());
   }
 
   /**
