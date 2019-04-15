@@ -218,7 +218,7 @@
                     .mediaIdadePessoaCidade()
                     ?.mediaIdadePalmas.toFixed(1) === "NaN"
                     ? "Sem registro"
-                    : pesquisa.mediaIdadePessoaCidade().mediaIdadePalmas
+                    : pesquisa.mediaIdadePessoaCidade()?.mediaIdadePalmas
                 }}
               </td>
               <td *ngIf="cidade === 'Paraíso'">
